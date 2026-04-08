@@ -1,13 +1,17 @@
-import varaCarbonPro from "@/assets/products/vara-carbon-pro.jpg";
-import molineteXtreme from "@/assets/products/molinete-xtreme.jpg";
-import carretilhaTitan from "@/assets/products/carretilha-titan.jpg";
+import stanleyAzul from "@/assets/products/stanley-garrafa-azul.jpg";
+import shimanoStradic from "@/assets/products/shimano-stradic.jpg";
+import rapalaAlicate from "@/assets/products/rapala-alicate.jpg";
+import stanleyAzul2 from "@/assets/products/stanley-garrafa-azul2.jpg";
+import shimanoStradic2 from "@/assets/products/shimano-stradic2.jpg";
+import marineAzura from "@/assets/products/marine-azura.jpg";
+import stanleyVerde from "@/assets/products/stanley-garrafa-verde.jpg";
 import iscaPremium from "@/assets/products/isca-premium.jpg";
-import linhaMultifilamento from "@/assets/products/linha-multifilamento.jpg";
-import alicateInox from "@/assets/products/alicate-inox.jpg";
-import bolsaTatica from "@/assets/products/bolsa-tatica.jpg";
-import copoTermico from "@/assets/products/copo-termico.jpg";
 import kitPescaria from "@/assets/products/kit-pescaria.jpg";
 import caixaIscas from "@/assets/products/caixa-iscas.jpg";
+import bolsaTatica from "@/assets/products/bolsa-tatica.jpg";
+import linhaMultifilamento from "@/assets/products/linha-multifilamento.jpg";
+import alicateInox from "@/assets/products/alicate-inox.jpg";
+import copoTermico from "@/assets/products/copo-termico.jpg";
 
 export type Badge = "promo" | "novo" | "mais-vendido" | "oferta";
 
@@ -24,106 +28,166 @@ export interface Product {
 
 export const categories = [
   "Todos",
-  "Varas",
-  "Molinetes",
-  "Carretilhas",
   "Iscas",
-  "Linhas",
+  "Molinetes",
   "Acessórios",
   "Copos Térmicos",
+  "Kits",
+  "Linhas",
   "Promoções",
 ];
 
 export const products: Product[] = [
   {
     id: "1",
-    name: "Vara Carbon Pro 1,80m",
-    category: "Varas",
-    price: 289.9,
-    badge: "mais-vendido",
-    image: varaCarbonPro,
-    description: "Vara de carbono ultra leve com ação rápida",
-    installment: "3x de R$ 96,63",
+    name: "Isca Dançarina CMC 110mm",
+    category: "Iscas",
+    price: 93.0,
+    badge: "novo",
+    image: iscaPremium,
+    description: "Isca artesanal CMC com nado realista e anzóis reforçados. Perfeita para tucunaré e dourado.",
+    installment: "12x de R$ 9,42",
   },
   {
     id: "2",
-    name: "Molinete Xtreme 3000",
-    category: "Molinetes",
-    price: 199.9,
+    name: "Isca Hunter CMC 140mm",
+    category: "Iscas",
+    price: 83.0,
     badge: "novo",
-    image: molineteXtreme,
-    description: "6 rolamentos, drag suave e corpo em alumínio",
-    installment: "2x de R$ 99,95",
+    image: caixaIscas,
+    description: "Isca de meia-água artesanal com ação vibrante. Ideal para peixes de médio e grande porte.",
+    installment: "12x de R$ 8,41",
   },
   {
     id: "3",
-    name: "Carretilha Titan Black",
-    category: "Carretilhas",
-    price: 459.9,
-    image: carretilhaTitan,
-    description: "Perfil baixo, freio magnético e 7+1 rolamentos",
-    installment: "4x de R$ 114,98",
+    name: "Isca Supera CMC",
+    category: "Iscas",
+    price: 69.93,
+    badge: "promo",
+    image: iscaPremium,
+    description: "Isca artesanal premium com acabamento impecável. De R$ 77,70 por R$ 69,93.",
+    installment: "12x de R$ 7,09",
   },
   {
     id: "4",
-    name: "Isca Artificial Premium 12cm",
+    name: "Isca Popper Tracker CMC",
     category: "Iscas",
-    price: 34.9,
+    price: 55.71,
     badge: "promo",
-    image: iscaPremium,
-    description: "Articulada com nado realista e anzóis reforçados",
+    image: caixaIscas,
+    description: "Popper de superfície artesanal CMC. Explosões garantidas! De R$ 61,90 por R$ 55,71.",
+    installment: "12x de R$ 5,64",
   },
   {
     id: "5",
-    name: "Linha Multifilamento 0,28mm",
-    category: "Linhas",
-    price: 89.9,
-    image: linhaMultifilamento,
-    description: "100m de linha trançada com alta resistência",
+    name: "Molinete Shimano Stradic C3000XG",
+    category: "Molinetes",
+    price: 1899.9,
+    badge: "mais-vendido",
+    image: shimanoStradic,
+    description: "Molinete top de linha Shimano com X-Protect, MicroModule II e corpo em alumínio.",
+    installment: "12x de R$ 158,33",
   },
   {
     id: "6",
-    name: "Alicate de Pesca Inox",
-    category: "Acessórios",
-    price: 79.9,
-    badge: "mais-vendido",
-    image: alicateInox,
-    description: "Multifunção com corta-linha e destorcedor",
+    name: "Molinete Marine Azura 2000",
+    category: "Molinetes",
+    price: 215.0,
+    image: marineAzura,
+    description: "Molinete Marine com design robusto, ideal para água doce. Corpo em grafite reforçado.",
+    installment: "3x de R$ 71,67",
   },
   {
     id: "7",
+    name: "Alicate Rapala Mag Spring 8\"",
+    category: "Acessórios",
+    price: 196.3,
+    badge: "mais-vendido",
+    image: rapalaAlicate,
+    description: "Alicate magnético Rapala Custom Design com corta-linha e pontas serrilhadas em aço inox.",
+    installment: "3x de R$ 65,43",
+  },
+  {
+    id: "8",
+    name: "Garrafa Stanley Classic 1L Azul",
+    category: "Copos Térmicos",
+    price: 349.9,
+    badge: "mais-vendido",
+    image: stanleyAzul,
+    description: "Garrafa térmica Stanley Classic com isolamento a vácuo. Mantém temperatura por até 24h.",
+    installment: "6x de R$ 58,32",
+  },
+  {
+    id: "9",
+    name: "Garrafa Stanley Classic 1L Verde",
+    category: "Copos Térmicos",
+    price: 349.9,
+    image: stanleyVerde,
+    description: "A clássica Stanley verde militar. Resistente e perfeita para aventuras ao ar livre.",
+    installment: "6x de R$ 58,32",
+  },
+  {
+    id: "10",
+    name: "Growler Stanley 1,9L Azul",
+    category: "Copos Térmicos",
+    price: 489.9,
+    badge: "novo",
+    image: stanleyAzul2,
+    description: "Growler Stanley com tampa rosqueável e alça ergonômica. Ideal para cerveja gelada na pescaria.",
+    installment: "6x de R$ 81,65",
+  },
+  {
+    id: "11",
+    name: "Kit Traíra CMC",
+    category: "Kits",
+    price: 179.9,
+    badge: "oferta",
+    image: kitPescaria,
+    description: "Kit completo com iscas artesanais CMC selecionadas especialmente para traíra.",
+    installment: "12x de R$ 18,24",
+  },
+  {
+    id: "12",
+    name: "Kit Gold CMC by Anderson Guedes",
+    category: "Kits",
+    price: 289.9,
+    badge: "mais-vendido",
+    image: kitPescaria,
+    description: "5 iscas premium projetadas com precisão para diferentes condições de pesca e peixes.",
+    installment: "12x de R$ 29,39",
+  },
+  {
+    id: "13",
     name: "Bolsa Tática para Pesca",
     category: "Acessórios",
     price: 149.9,
     image: bolsaTatica,
-    description: "Impermeável com múltiplos compartimentos",
+    description: "Impermeável com múltiplos compartimentos. Organização total na pescaria.",
     installment: "2x de R$ 74,95",
   },
   {
-    id: "8",
+    id: "14",
+    name: "Linha Multifilamento 0,28mm",
+    category: "Linhas",
+    price: 89.9,
+    image: linhaMultifilamento,
+    description: "100m de linha trançada com alta resistência à abrasão e zero memória.",
+  },
+  {
+    id: "15",
+    name: "Alicate de Pesca Inox",
+    category: "Acessórios",
+    price: 79.9,
+    image: alicateInox,
+    description: "Multifunção com corta-linha, destorcedor e clip de segurança.",
+  },
+  {
+    id: "16",
     name: "Copo Térmico 473ml Outdoor",
     category: "Copos Térmicos",
     price: 129.9,
-    badge: "novo",
-    image: copoTermico,
-    description: "Mantém a temperatura por até 12h",
-  },
-  {
-    id: "9",
-    name: "Kit Pescaria Completo",
-    category: "Promoções",
-    price: 599.9,
     badge: "promo",
-    image: kitPescaria,
-    description: "Vara + molinete + linha + acessórios essenciais",
-    installment: "6x de R$ 99,98",
-  },
-  {
-    id: "10",
-    name: "Caixa Organizadora de Iscas",
-    category: "Acessórios",
-    price: 49.9,
-    image: caixaIscas,
-    description: "12 divisórias ajustáveis, transparente e compacta",
+    image: copoTermico,
+    description: "Mantém a temperatura por até 12h. Perfeito para o barco.",
   },
 ];

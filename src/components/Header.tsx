@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { openWhatsApp } from "@/lib/whatsapp";
+import CartButton from "./CartButton";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,13 +29,16 @@ export default function Header() {
           </span>
         </div>
 
-        <button
-          onClick={() => openWhatsApp()}
-          className="btn-whatsapp text-xs !py-2 !px-3.5"
-        >
-          <MessageCircle className="w-4 h-4" />
-          <span className="hidden sm:inline">Fale Conosco</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <CartButton />
+          <button
+            onClick={() => openWhatsApp()}
+            className="btn-whatsapp text-xs !py-2 !px-3.5"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span className="hidden sm:inline">Fale Conosco</span>
+          </button>
+        </div>
       </div>
     </header>
   );
