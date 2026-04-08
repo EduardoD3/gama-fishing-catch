@@ -4,6 +4,7 @@ import ProductGrid from "@/components/ProductGrid";
 import HowItWorks from "@/components/HowItWorks";
 import WhatsAppFab from "@/components/WhatsAppFab";
 import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <HowItWorks />
       <Footer />
       <WhatsAppFab />
+      <CartDrawer />
     </div>
   );
 };
