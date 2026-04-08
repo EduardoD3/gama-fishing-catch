@@ -1,6 +1,7 @@
-import { ShoppingBag, Plus } from "lucide-react";
+import { ShoppingBag, Plus, Check } from "lucide-react";
 import type { Product } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 const badgeLabels: Record<string, string> = {
   promo: "Promoção",
@@ -17,12 +18,60 @@ const badgeClasses: Record<string, string> = {
 };
 
 export default function ProductCard({ product }: { product: Product }) {
-  const { addItem } = useCart();
+  const { addItem, setIsOpen } = useCart();
 
   const formattedPrice = product.price.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
   });
+
+  const handleAdd = () => {
+    addItem(product);
+    toast.custom(
+      (id) => (
+        <div className="w-full max-w-[360px] bg-card border border-border/60 rounded-2xl shadow-2xl p-4 animate-in slide-in-from-top-2 fade-in duration-300">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-9 h-9 rounded-full bg-green-500/15 flex items-center justify-center flex-shrink-0">
+              <Check className="w-5 h-5 text-green-600" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-heading font-bold text-sm text-foreground leading-tight truncate">
+                {product.name}
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                adicionado ao carrinho
+              </p>
+            </div>
+            <img
+              src={product.image}
+              alt=""
+              className="w-12 h-12 rounded-xl object-cover flex-shrink-0 border border-border/30"
+            />
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                toast.dismiss(id);
+              }}
+              className="flex-1 h-11 rounded-xl bg-secondary text-foreground font-heading font-bold text-xs transition-all active:scale-95 hover:bg-secondary/80"
+            >
+              Continuar comprando
+            </button>
+            <button
+              onClick={() => {
+                toast.dismiss(id);
+                setIsOpen(true);
+              }}
+              className="flex-1 h-11 rounded-xl bg-primary text-primary-foreground font-heading font-bold text-xs transition-all active:scale-95 hover:bg-primary/90 shadow-md"
+            >
+              Ver carrinho
+            </button>
+          </div>
+        </div>
+      ),
+      { duration: 3500, position: "top-center" }
+    );
+  };
 
   return (
     <article className="card-product flex flex-col group">
@@ -42,9 +91,8 @@ export default function ProductCard({ product }: { product: Product }) {
             {badgeLabels[product.badge]}
           </span>
         )}
-        {/* Quick add button overlay */}
         <button
-          onClick={() => addItem(product)}
+          onClick={handleAdd}
           className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 active:scale-90 hover:bg-primary/90"
           aria-label={`Adicionar ${product.name} ao carrinho`}
         >
@@ -74,7 +122,7 @@ export default function ProductCard({ product }: { product: Product }) {
           )}
 
           <button
-            onClick={() => addItem(product)}
+            onClick={handleAdd}
             className="btn-whatsapp w-full text-sm mt-1"
           >
             <ShoppingBag className="w-4 h-4" />
