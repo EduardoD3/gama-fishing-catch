@@ -48,6 +48,20 @@ export default function FeaturedCarousel() {
     return () => el.removeEventListener("scroll", checkScroll);
   }, []);
 
+  // Auto-scroll
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const interval = setInterval(() => {
+      if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 4) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: el.clientWidth * 0.7, behavior: "smooth" });
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scroll = (dir: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
