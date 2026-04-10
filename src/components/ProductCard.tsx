@@ -2,6 +2,7 @@ import { ShoppingBag, Plus, Check } from "lucide-react";
 import type { Product } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
+import CountdownTimer from "./CountdownTimer";
 
 const badgeLabels: Record<string, string> = {
   promo: "Promoção",
@@ -85,11 +86,17 @@ export default function ProductCard({ product }: { product: Product }) {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {product.badge && (
-          <span
-            className={`badge-product ${badgeClasses[product.badge]} absolute top-3 left-3`}
-          >
-            {badgeLabels[product.badge]}
-          </span>
+          <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-1">
+            <span className={`badge-product ${badgeClasses[product.badge]}`}>
+              {badgeLabels[product.badge]}
+            </span>
+            {(product.badge === "promo" || product.badge === "oferta" || product.badge === "mais-vendido") && (
+              <CountdownTimer
+                hours={product.badge === "mais-vendido" ? 12 : 8}
+                compact
+              />
+            )}
+          </div>
         )}
         <button
           onClick={handleAdd}

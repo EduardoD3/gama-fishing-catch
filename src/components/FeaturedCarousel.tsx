@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, ShoppingBag, Flame } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShoppingBag, Flame, Check } from "lucide-react";
 import { products, type Product } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
-import { Check } from "lucide-react";
+import CountdownTimer from "./CountdownTimer";
 
 const featured = products.filter(
   (p) => p.badge === "mais-vendido" || p.badge === "novo" || p.badge === "promo"
@@ -155,9 +155,17 @@ export default function FeaturedCarousel() {
 
                 {/* Badge */}
                 {product.badge && (
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-lg px-2.5 py-1 font-heading font-bold text-xs bg-card/90 backdrop-blur-sm text-foreground shadow-md">
-                    {badgeIcons[product.badge]} {badgeLabels[product.badge]}
-                  </span>
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1 rounded-lg px-2.5 py-1 font-heading font-bold text-xs bg-card/90 backdrop-blur-sm text-foreground shadow-md">
+                      {badgeIcons[product.badge]} {badgeLabels[product.badge]}
+                    </span>
+                    {(product.badge === "promo" || product.badge === "oferta" || product.badge === "mais-vendido") && (
+                      <CountdownTimer
+                        hours={product.badge === "mais-vendido" ? 12 : 8}
+                        className="bg-card/90 backdrop-blur-sm shadow-md"
+                      />
+                    )}
+                  </div>
                 )}
 
                 {/* Price overlay */}
